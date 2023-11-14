@@ -1,0 +1,12 @@
+#include<stdio.h>
+int main()
+{
+	//strcpy-string copy-c
+	//char* strcpy(char*destination,const char* source);
+	char arr1[]="bit";
+	char arr2[20]="########";
+	//            bit\n##
+	strcpy(arr2,arr1);
+	printf("%s\n",arr2);
+	return 0; 
+} 
