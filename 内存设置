@@ -1,0 +1,13 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+//memset
+//memory-内存   set-设置
+//void*memset(void*ptr,int value,size-t num);
+int main()
+{
+	char arr[]="hello world";
+	memset(arr,'*',5);
+	printf("%s\n",arr);
+	return 0;
+} 
