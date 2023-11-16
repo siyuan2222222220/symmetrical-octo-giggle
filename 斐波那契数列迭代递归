@@ -1,0 +1,38 @@
+//斐波那契数列
+//1 1 2 3 5 8 13 21 34 55...
+//描述第n个斐波那契数 
+int count=0;
+int Fib1(int n)
+{
+	if(n==3)
+	count++;//计算次数 
+	if(n<=2)
+	return 1;
+	else
+	return Fib1(n-1)+Fib1(n-2); 
+		
+}
+//迭代
+int Fib(int n)
+{
+	int a=1;
+	int b=1;
+	int c=1;
+	while(n>2)
+	{
+		c=a+b;
+		a=b;
+		b=c;
+		n--;	
+	}	
+	return 0;
+} 
+
+int main()
+{
+	int n=0;
+	scanf("%d",&n);
+	ret=Fib(n);
+	printf("ret=%d\n",ret);
+	return 0;
+}
