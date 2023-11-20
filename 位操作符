@@ -1,0 +1,25 @@
+//位操作符
+//& 按二进制位与     |或     ^异或
+#include<stdio.h>
+int main()
+{
+	int a=3;
+	int b=5;
+	int c=a&b;
+	//011
+	//101
+	//001
+	printf("%d\n",c);
+	int d=a|b;
+	//011
+	//101
+	//111
+	printf("%d\n",d);
+	int e=a^b;
+	//011
+	//101
+	//110
+	printf("%d\n",e);
+	return 0;	
+} 
+ 
