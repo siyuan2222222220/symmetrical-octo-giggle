@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char ch1[1005],ch2[1005];
+	while(scanf("%s%s",ch1,ch2)!=EOF)
+	{
+		int len1=strlen(ch1);
+		int len2=strlen(ch2);
+		int min=len1<=len2?len1:len2;
+		int i=0;
+		for(i=0;i<min;i++)
+		{
+			char p = (ch1[i]-'a' + ch2[i]-'a')%26+'a';
+			printf("%c",p);
+		}
+		for(i=min;i<len1;i++)
+		{
+			printf("%c",ch1[i]);
+		}
+		for(i=min;i<len2;i++)
+		{
+			printf("%c",ch2[i]);
+		}
+		printf("\n");
+	}
+	return 0; 
+}
