@@ -1,0 +1,18 @@
+//sizeof计算的空间大小，字节数
+#include<stdio.h> 
+int main()
+{
+	int a=10;
+	char c='r';
+	char*p=&c;
+	int arr[10]={0};
+	printf("%c\n",sizeof(a));//4
+	printf("%c\n",sizeof(int));//4
+	printf("%c\n",sizeof(c));//1
+	printf("%c\n",sizeof(char));//1
+	printf("%c\n",sizeof(p));//4
+	printf("%c\n",sizeof(char*));//4
+	printf("%c\n",sizeof(arr));//40
+	printf("%c\n",sizeof(int [10]));//40
+	return 0;
+ } 
