@@ -1,0 +1,13 @@
+#include<stdio.h>
+#include<time.h>
+int main()
+{
+	int a=256;
+	printf("%#x\n",a);
+	//将一个10进制转换为16进制，例如(256)10=(0x100)16
+	double b=100.0;
+	double c=7.0;
+	printf("%.8f\n",b/c);
+	printf("1%04d2",printf("hello\tworld\n"));
+	return 0;
+}
