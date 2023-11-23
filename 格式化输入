@@ -1,0 +1,17 @@
+#include<stdio.h>
+int main()
+{
+	int num;
+	scanf("%d",&num);
+	int sum=num%10+num/100+num/10%10;
+	printf("%d\n",sum);
+	int a,b;
+	scanf("%d%d",&a,&b);
+	int mul=a*b;
+	printf("%d\n",mul);
+	int num1,num2,num3;
+	scanf("%d%d%d",&num1,&num2,&num3);
+	int avarage=(num1+num2+num3)/3;
+	printf("%d\n",avarage);
+	return 0;
+ } 
