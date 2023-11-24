@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int n;
+	while(scanf("%d",&n)!=EOF)
+	{
+		int dir=0;
+		char ch[n];
+		scanf("%s",ch);
+		int i=0;
+		for(i=0;i<n;i++)
+		{
+			if(ch[i]=='L')
+			{
+				dir--;
+			}
+			if(ch[i]=='R')
+			{
+				dir++;
+			}
+			
+		}
+		dir%=4;
+		switch(dir)
+		{
+			case 0:
+			case -4:	
+				printf("N\n");
+				break;
+			case 1:
+			case -3:
+				printf("E\n");
+				break;
+			case 2:
+			case -2:
+				printf("S\n");
+				break;
+			case 3:
+			case -1:
+				printf("W\n");
+				break;
+			default:
+				break;		 
+		}
+	}
+	return 0;
+}
