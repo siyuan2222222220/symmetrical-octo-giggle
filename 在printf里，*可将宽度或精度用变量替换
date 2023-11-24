@@ -1,0 +1,11 @@
+//在printf里，*可将宽度或精度用变量替换
+
+#include<stdio.h>
+int main()
+{
+	float data=1.0/7;
+	int precision;
+	scanf("%d",&precision);
+	printf("%.*f\n",precision,data);
+	return 0;
+}
