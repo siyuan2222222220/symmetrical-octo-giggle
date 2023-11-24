@@ -1,0 +1,10 @@
+//printf占位符和参数类型不匹配
+#include<stdio.h>
+int main()
+{
+	short a=10;
+	printf("%lld\n",a);
+	long long int b=0x12345678;
+	printf("%hd\n",b);
+	return 0;
+}
