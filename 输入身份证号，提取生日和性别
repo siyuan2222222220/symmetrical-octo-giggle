@@ -1,0 +1,15 @@
+//*的妙用--在scanf里*表示跳过 
+//输入身份证号，提取生日和性别 
+#include<stdio.h>
+int main()
+{
+	int year=0,month=0,day=0;
+	int gender;
+	printf("输入18位身份证号：");
+	scanf("%*6d%4d%2d%2d%*2d%1d%*c",&year,&month,&day,&gender);
+	printf("year=%d\n",year);
+	printf("month=%d\n",month);
+	printf("day=%d\n",day);
+	printf("gender=%d\n",gender);
+	return 0; 
+ } 
