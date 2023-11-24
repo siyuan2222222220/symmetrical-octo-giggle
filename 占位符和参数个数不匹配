@@ -1,0 +1,9 @@
+//printf占位符和参数个数不匹配
+#include<stdio.h>
+int main()
+{
+	int a=1,b=2,c=3;
+	printf("请输入a,b的值：%d,%d\n",a,b,c);
+	printf("请输入a,b的值：%d,%d\n",a);
+	return 0;
+}
