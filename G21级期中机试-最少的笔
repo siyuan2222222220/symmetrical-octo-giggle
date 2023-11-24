@@ -1,0 +1,35 @@
+#include<stdio.h>
+int main()
+{
+	int money;
+	while(scanf("%d",&money)!=EOF)
+	{
+		int sum=0;
+		int cnt_38=0;
+		int cnt_18=0;
+		int cnt_8=0;
+		if(money>=38)
+		{
+			cnt_38=money/38;
+			money%=38;
+			sum+=cnt_38*38;
+		}
+		if(money>=18&&money<38)
+		{
+			cnt_18=money/18;
+			money%=18;
+			sum+=cnt_18*18; 
+		}
+		if(money>=8&&money<18)
+		{
+			cnt_8=money/8;
+			money%=8;
+			sum+=cnt_8*8;
+		}
+		int cnt=cnt_38+cnt_18+cnt_8;
+		if(sum>=68)
+		cnt++;
+		printf("%d\n",cnt);
+	}
+	return 0;
+}
