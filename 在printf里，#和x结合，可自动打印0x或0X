@@ -1,0 +1,8 @@
+//在printf里，#和x结合，可自动打印0x或0X
+#include<stdio.h>
+int main()
+{
+	int a=250;
+	printf("%#x %#X\n",a,a);
+	return 0;
+}
