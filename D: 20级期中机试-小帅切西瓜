@@ -1,0 +1,16 @@
+#include<stdio.h>
+int main()
+{
+	long long int weight;
+	while(scanf("%lld",&weight)!=EOF)
+	{
+		
+		if(weight%2==0&&weight>2)
+		{
+			printf("YES\n");
+		}
+		else
+		printf("NO\n");
+	}
+	return 0;
+}
