@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+
+{
+	char ch[10000];
+	while(scanf("%s",ch)!=EOF)
+	{
+		int len=strlen(ch);
+		int i=0;
+		int cnt_c=0;
+		int cnt_s=0;
+		int cnt_u=0;
+		for(i=0;i<len;i++)
+		{
+			if(ch[i]=='C')
+			{
+				cnt_c++;
+			}
+			else if(ch[i]=='S')
+			{
+				cnt_s++;
+				 
+			}
+			else if(ch[i]=='U')
+			{
+				cnt_u++;
+			}
+			
+		}
+		int min=cnt_c<cnt_s?cnt_c:cnt_s;
+		min=min<cnt_u?min:cnt_u; 
+		printf("%d\n",min);
+	}
+	return 0;
+}
