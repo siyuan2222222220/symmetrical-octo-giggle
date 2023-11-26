@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+#include<time.h>
+#include<ctype.h>
+#include<limits.h>
+int main()
+{
+    int n;
+    while(scanf("%d",&n)!=EOF)
+    {
+         
+        int arr[1005];
+        int numPerFloor[1005][2];
+     
+        int i=0;
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&arr[i]);
+             
+        }
+        int m;
+        scanf("%d",&m);
+         
+        int found[m];
+        int j=0;
+        for(j=0;j<m;j++)
+        {
+            scanf("%d",&found[j]);
+        }
+         
+        numPerFloor[0][0]=1;   
+        numPerFloor[0][1]=arr[0];
+          
+        for(i=1;i<n;i++)
+        {
+             
+            numPerFloor[i][0]=numPerFloor[i-1][1]+1;    
+            
+            numPerFloor[i][1]=numPerFloor[i][0]+arr[i]-1;
+        }
+          
+         
+        for(i=0;i<m;i++)
+        {
+             
+            for(j=0;j<n;j++)
+            {
+                if(numPerFloor[j][0]<=found[i] &&
+                   found[i]<=numPerFloor[j][1])
+                {
+                    printf("%d\n",j+1);   
+                    break;
+                }
+            }
+        }
+         
+    }
+    return 0;
+ } 
