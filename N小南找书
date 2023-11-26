@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <time.h>
+#include <limits.h>
+
+int main(void)
+{  
+    int n;
+    while(scanf("%d",&n)!=EOF)
+    {
+        //n(1鈮鈮?000)
+        int nArray[1005];       //淇濆瓨姣忓眰涔︾殑鏁伴噺
+        int numPerFloor[1005][2];   //璁＄畻姣忓眰涔︾殑璧峰缂栧彿鍜岀粨鏉熺紪鍙?
+        int m;      //瑕佹壘鍑犳湰涔?
+        //(1鈮鈮?000)
+        int mArrays[1005];
+         
+        //鑾峰彇鏁版嵁(2)
+        for(int i=0;i<n;i++)
+        {
+            scanf("%d",&nArray[i]);
+        }
+        //鑾峰彇鏁版嵁(3)
+        scanf("%d",&m);
+        //鑾峰彇鏁版嵁(4)
+        for(int i=0;i<m;i++)
+        {
+            scanf("%d",&mArrays[i]);
+        }
+         
+         
+        //鏍规嵁cntPerFloor璁＄畻numPerFlooor
+        //鐢变簬绗簩灞傞渶瑕佺煡閬撶涓€灞傜殑淇℃伅锛岀涓€灞傜洿鎺ョ粰鍑恒€?
+        numPerFloor[0][0]=1;    //绗?灞備功鏋朵笂鐨勪功浠?鍙峰埌a1鍙?
+        numPerFloor[0][1]=nArray[0];
+         
+        for(int i=1;i<n;i++)
+        {
+            //鏈眰鐨勮捣濮?涓婁竴灞傜殑缁撴潫+1
+            numPerFloor[i][0]=numPerFloor[i-1][1]+1;    
+            //鏈眰鐨勭粨鏉?鏈眰鐨勮捣濮?鏈眰涔︾殑鏁伴噺-1
+            numPerFloor[i][1]=numPerFloor[i][0]+nArray[i]-1;
+        }
+         
+        //鏌ユ壘m鏈功鐨勫眰鏁?
+        for(int i=0;i<m;i++)
+        {
+            //鍒ゆ柇 numPerFloor[x][0]<=mArrays[i]<=numPerFloor[x][1]锛岄偅涔坸灏辨槸灞?
+            for(int j=0;j<n;j++)
+            {
+                if(numPerFloor[j][0]<=mArrays[i] &&
+                   mArrays[i]<=numPerFloor[j][1])
+                {
+                    printf("%d\n",j+1)      ;   //j+1: 浠?灞傚紑濮嬶紝绋嬪簭搴忓彿鏄?寮€濮嬨€?
+                    break;
+                }
+            }
+        }
+          
+    }
+     
+    return 0; 
+}
