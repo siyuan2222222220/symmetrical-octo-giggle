@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+	char ch[20000];
+	
+ 	while(scanf("%s",ch)!=EOF)
+ 	{
+ 		int len=strlen(ch);
+		int i=0;
+		
+		for(i=0;i<len;i++)
+		{
+			
+			if(isupper(ch[i]))
+			{
+				
+				putchar(ch[i]);	
+			}
+			
+				
+		} 	
+		putchar('\n');
+	
+		for(i=0;i<len;i++)
+		{
+			
+			if(islower(ch[i]))
+			{
+				
+				putchar(ch[i]);	
+			}	
+			
+		} 	
+		putchar('\n');
+	}
+	return 0;
+ } 
