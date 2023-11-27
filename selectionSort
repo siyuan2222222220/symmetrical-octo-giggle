@@ -1,0 +1,18 @@
+void selectionSort(int data[],int len)
+{
+    for(int i=0;i<len-1;i++)
+    {
+        int flag=i;
+        for(int j=i+1;j<len;j++)
+        {
+            if(data[j]<data[flag])
+                flag=j;
+        }
+        if(flag!=i)
+        {
+            int tmp = data[i];
+            data[i]=data[flag];
+            data[flag]=tmp;
+        }
+    }
+}
