@@ -1,0 +1,93 @@
+#include"LeapYear.h"
+
+int IsLeapYear(int year)
+{
+	//璁剧疆闂板勾鏍囧織锛岄粯璁や笉鏄棸骞?
+	int LeapFlag=0;
+	//鑳借400鏁撮櫎
+	if(year%400==0)
+	{
+		LeapFlag=1;
+	}
+	else
+	{
+		//鑳借4鏁撮櫎骞朵笖涓嶈兘琚?00鏁撮櫎
+		if(year%4==0 && year%100!=0)
+		{
+			LeapFlag=1;
+		}
+	}
+	
+	return LeapFlag;
+}
+
+//鍒ゆ柇鏌愬勾鏌愭湀涓€鍏辨湁澶氬皯澶?
+int DaysOfMonth(int year,int month)
+{
+	//璁剧疆鍙橀噺锛岃〃绀哄綋鏈堢殑澶╂暟
+	int day;
+	switch(month)
+	{
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			day=31;
+			break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			day=30;
+			break;
+		case 2:
+			//璋冪敤涓婇潰鐨処sLeapYear鍑芥暟
+			if(IsLeapYear(year))
+			{
+				day=29;
+			}
+			else
+			{
+				day=28;
+			}
+			break;
+		default:
+			//榛樿day鏄?0澶?
+			day=30;
+			break; 
+	}
+	
+	return day;
+}
+
+
+//璁＄畻鏌愬勾鏌愭湀鏌愭棩鏄骞寸殑绗嚑澶?
+int DayofYear(int year,int month,int day)
+{
+	//濡傛灉骞村拰鏈堢殑鍙傛暟閿欒锛岀洿鎺ヨ繑鍥?
+	if(year<0 ||  month<1 ||   month>12)
+	{
+		return 0;
+	}
+  
+	//濡傛灉鏃ユ湡灏忎簬1鎴栬€呰秴杩囧綋鏈堟渶澶ф棩鏈燂紝鐩存帴杩斿洖0 
+	//鍏朵腑褰撴湀鐨勬渶澶уぉ鏁扮敤涓婇潰鐨凞aysOfMonth鍑芥暟璁＄畻
+	if(day<1 || day>DaysOfMonth(year,month))
+	{
+		return 0;
+	} 
+	
+	int dayofyear=0;
+	//鍏堟妸浠?鏈堜唤鍒癿onth-1鏈堜唤鐨勬棩鏈熷姞璧锋潵
+	for(int i=1;i<month;i++)
+	{
+		dayofyear+= DaysOfMonth(year,i);
+	}
+	//鍐嶆妸褰撴湀鐨勬棩鏈熷姞璧锋潵
+	dayofyear+=day;
+	
+	return dayofyear;
+}
