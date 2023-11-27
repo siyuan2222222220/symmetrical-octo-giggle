@@ -1,0 +1,26 @@
+#include "InsertSort.h"
+
+void InsertSort(int *array,int len)
+{
+     //榛樿绗竴涓槸濂界殑銆?
+    int start=2;
+    while (start<len) {
+        //鍏堟妸褰撳墠鐨勬暟淇濆瓨涓嬫潵锛屽悓鏃惰吘鍑轰綅缃?
+        int tmp=*(array+start);
+        for(int i=start-1;i>=0;i--)
+        {
+            //濡傛灉绗琲涓厓绱犳瘮tmp澶э紝寰€鍚庢尓涓€涓綅缃?
+            if(*(array+i)>tmp)
+            {
+                *(array+i+1)=*(array+i);
+            }
+            //鍚﹀垯锛宼mp灏卞湪杩欎釜浣嶇疆涓?鏈缁撴潫锛屼负tmp鎵惧埌鍚堥€傜殑鍊间簡
+            else
+            {
+                *(array+i+1)=tmp;
+                start++;
+                break;;
+            }
+        }
+    }
+}
