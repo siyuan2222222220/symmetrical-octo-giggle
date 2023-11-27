@@ -1,0 +1,83 @@
+#include "MergingSort.h"
+#include <stdlib.h>
+#include <string.h>
+
+void printarray(int *data,int start,int end,int i)
+{
+    if(i==0)
+        printf("before:%d-%d:",start,end);
+    else
+        printf("aftere:%d-%d:",start,end);
+    for(int i=start;i<=end;i++)
+        printf("%d ",*(data+i));
+    printf("\n");
+}
+
+void Merge2List(int* data,int start,int end)
+{
+    printarray(data,start,end,0);
+    int mid = (start+end)/2;
+    int len1 = mid-start+1;
+    int len2 = end-mid;
+    
+    //鐢宠鍐呭瓨锛屽皢鏁版嵁鏆傚瓨
+    int *ptr1;
+    ptr1=(int*)malloc(sizeof(int)*len1);
+    int *ptr2;
+    ptr2=(int*)malloc(sizeof(int)*len2);
+    if(ptr1==NULL | ptr2==NULL)
+    {
+        printf("bad malloc in fun Merge2List\n");
+        return;
+    }
+    memcpy(ptr1,data+start,sizeof(int)*len1);
+    memcpy(ptr2,data+mid+1,sizeof(int)*len2);
+    
+    
+    int i=0;
+    int j=0;
+    int pos=start;
+    while(i<len1 && j<len2)
+    {
+        int tmp1 =*(ptr1+i);
+        int tmp2 =*(ptr2+j);
+        if(tmp1<tmp2)
+        {
+            *(data+pos)=tmp1;
+            pos++;
+            i++;
+        }
+        else
+        {
+            *(data+pos)=tmp2;
+            pos++;
+            j++;
+        }
+    }
+    //鍓嶉潰搴忓垪杩樺墿浣?
+    if(i<len1)
+    {
+        memcpy(data+pos, ptr1+i, sizeof(int)*(len1-i));
+    }
+    //鍚庨潰搴忓垪杩樺墿浣?
+    if(j<len2)
+    {
+        memcpy(data+pos, ptr2+j, sizeof(int)*(len2-j));
+    }
+    free(ptr1);
+    free(ptr2);
+    printarray(data,start,end,1);
+}
+
+
+void MergeSort(int* data,int start,int end)
+{
+    if(start<end)
+    {
+        int mid = (start+end)/2;
+        MergeSort(data,start,mid);
+        MergeSort(data,mid+1,end);
+        
+        Merge2List(data,start,end); 
+    }
+}
