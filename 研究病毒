@@ -1,0 +1,24 @@
+# include <stdio.h> 
+# include <stdlib.h>
+# include <limits.h>
+# include <time.h>
+# include <math.h>
+# include <string.h>
+   
+int main(void)
+{ 
+    //1鈮en(S)鈮?000
+    char dna[1001];
+    while(scanf("%s",dna)!=EOF)
+    { 
+        int len = strlen(dna);
+        for(int i=0;i<len;i++)
+        {
+            if(dna[i]!='T')
+                printf("%c",dna[i]);
+            else    //鍙槸灏員鏀逛负U
+                printf("U");
+        }
+        printf("\n");
+    } 
+}
