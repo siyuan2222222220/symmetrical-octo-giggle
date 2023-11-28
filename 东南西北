@@ -1,0 +1,45 @@
+# include <stdio.h> 
+# include <stdlib.h>
+# include <limits.h>
+# include <time.h>
+# include <math.h>
+# include <string.h>
+  
+int main(void)
+{
+    //姝ｆ暣鏁皀锛?<n鈮?000锛?
+    int n;
+    char cmd[1001];
+    while(scanf("%d",&n)!=EOF)
+    { 
+        scanf("%s",cmd);
+
+        int dir=0;   //north
+
+        for(int i=0;i<n;i++)
+        {
+            if(cmd[i]=='L')
+                dir--;
+            else
+                dir++;
+        }
+        dir%=4;
+        switch(dir)
+        {
+            case 1:
+            case -3:
+                printf("E\n");break;
+            case 2:
+            case -2:
+                printf("S\n");break;
+            case 3:
+            case -1:
+                printf("W\n");break;
+            default:
+                printf("N\n");break;
+        }
+
+    }
+    
+    
+}
