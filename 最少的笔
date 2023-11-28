@@ -1,0 +1,28 @@
+# include <stdio.h> 
+# include <stdlib.h>
+# include <limits.h>
+# include <time.h>
+# include <math.h>
+# include <string.h>
+  
+int main(void)
+{
+    
+    int x;
+    while(scanf("%d",&x)!=EOF)
+    {
+        int cnt38=x/38;
+        x%=38;
+        int cnt18=x/18;
+        x%=18;
+        int cnt8=x/8;
+        //濡傛灉娑堣垂閲戦瓒呰繃68鍏?璧犻€佷竴鏀?鍏冪殑绗?
+        if(38*cnt38+18*cnt18+8*cnt8>68)
+            cnt8++; 
+        int total=cnt38+cnt18+cnt8;
+        printf("%d\n",total);
+        
+    }
+    
+    
+}
