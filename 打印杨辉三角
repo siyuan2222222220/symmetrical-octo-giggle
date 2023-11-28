@@ -1,0 +1,85 @@
+# include <stdio.h> 
+# include <stdlib.h>
+# include <limits.h>
+# include <time.h>
+# include <math.h>
+# include <string.h>
+  
+//浠ｇ爜鏉ヨ嚜QQ缇ゆ枃浠讹細 /codecube/yanghui.c  
+void yanghui(int mat[30][30],int n)
+{ 
+	mat[0][0]=1;
+	for(int i=1;i<n;i++){
+		mat[i][0]=1; 
+		for(int j=1;j<=i;j++){
+			mat[i][j]=mat[i-1][j-1]+mat[i-1][j]; 
+		} 
+	}
+}
+
+//鎸夋渶澶?0*30鐭╅樀锛岄渶瑕佸ぇ绾?50涓礌鏁?
+int prime[450]={2,3,5,7,11};
+int fillPrimeArray()
+{
+    //浠?3寮€濮?
+    int st = 13;
+    //鐩墠鍙湁5涓?
+    int len= 5;
+    while(len<450)
+    {
+        //鐢ㄥ凡缁忓瓨鍦ㄧ殑绱犳暟鏉ユ祴璇晄t
+        int flag=1;
+        for(int i=0;i<len;i++)
+        {
+            if(st%prime[i]==0)
+            {
+                flag=0;
+                break;
+            }
+        }
+        if(flag)
+            prime[len++]=st;
+
+        //鍙湅濂囨暟
+        st+=2;  
+    }
+}
+
+int main(void)
+{ 
+    //鍑嗗濂?50涓礌鏁?
+    fillPrimeArray();
+
+    int n;
+    while(scanf("%d",&n)!=EOF)
+    { 
+        int mat[30][30]={0};
+        yanghui(mat,n);
+        
+        int primeIndex=0;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(mat[i][j]==0)
+                {
+                    mat[i][j]=prime[primeIndex++];
+                }
+            }
+        }
+
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                printf("%d ",mat[i][j]); 
+            }
+            printf("\n");
+        }
+
+        //姣忎竴涓柟闃靛悗闈㈠姞涓€涓┖琛?
+       printf("\n");
+       
+        
+    } 
+}
