@@ -1,0 +1,22 @@
+//-1有符号数和无符号数比较，会被转换成无符号数而大大增大 
+#include<stdio.h>
+#include<string.h>
+int i;
+//全局变量-不初始化-默认是0 
+int main()
+{
+	i--;
+	//-1
+	if(i>sizeof(i))
+	{
+		//补码存放 
+			//4 
+		//sizeof()计算变量/类型所占内存大小>=0无符号数
+		 printf(">\n"); 
+	}
+	else
+	{
+		printf("<\n");
+	}
+ 	return 0;
+ } 
