@@ -1,0 +1,15 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int a=0x11223344;//4个字节
+	//char*pc
+  //一个字节
+	//a
+	//44 33 22 11
+	char*pc=(char*)&a;
+	*pc=0;
+	printf("%x\n",a);
+	//11 22 33 00
+ 	return 0;
+ } 
