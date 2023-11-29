@@ -1,0 +1,23 @@
+//strlen-求字符串长度
+//递归-模拟实现strlen-计数器的方式1-递归的方式2
+//指针-方式3 
+#include<stdio.h>
+#include<string.h> 
+int my_strlen(char*str)
+{
+	char*start=str;
+	char*end=str;
+	while(*end!='\0')
+	{
+		end++;
+	}
+	return end-start;
+}
+int main()
+{
+	char arr[]="bit";//b i t\0
+	int len=my_strlen(arr); 
+	printf("%d\n",len);
+	
+	return 0;
+ } 
