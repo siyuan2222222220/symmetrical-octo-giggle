@@ -1,0 +1,98 @@
+//输入
+//多组样例。每行输入一个样例包括一个整数n（0<n≤30）。
+//输出
+//对于每一个输入的n，请输出相应行数的方阵图形，
+//每一行的整数之间用一个空格隔开。每一个方阵后面加一个空行
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+#include<limits.h>
+#include<ctype.h>
+#include<stdlib.h>
+#include<time.h>
+
+void yanghui(int mat[30][30],int n)
+{
+	
+	mat[0][0]=1;
+	int i=0;
+	for(i=1;i<n;i++)
+	{
+		mat[i][0]=1;
+		int j=0;
+		for(j=1;j<=i;j++)
+		{
+			mat[i][j]=mat[i-1][j-1]+mat[i-1][j];
+		}
+	}
+	
+}
+
+int prime[450]={2,3,5,7,11};
+int fillprimearr()
+{
+	int st=13;
+	int len=5;
+	
+	while(len<450)
+	{
+		
+		int flag=1;
+		int i=0;
+		for(i=0;i<len;i++)
+		{
+			
+			if(st%prime[i]==0)
+			{
+				flag=0;
+				break;
+			}
+			
+			
+		}
+		if(flag)
+		{
+			prime[len++]=st;
+		}
+		st+=2;
+	}
+	
+}
+
+int main()
+{
+	fillprimearr();
+	int n;
+	while(scanf("%d",&n)!=EOF)
+	{
+		int mat[30][30]={0};
+		
+		yanghui(mat,n);
+		
+		int primeindex=0;
+		int i=0;
+		for(i=0;i<n;i++)
+		{
+			int j=0;
+			for(j=0;j<n;j++)
+			{
+				if(mat[i][j]==0)
+				{
+					mat[i][j]=prime[primeindex++];
+				}
+			}
+		}
+		
+		for(i=0;i<n;i++)
+		{
+			int j=0;
+			for(j=0;j<n;j++)
+			{
+				printf("%d ",mat[i][j]);	
+			}
+			printf("\n");	
+		}
+		printf("\n");	
+	}
+	return 0;
+ } 
