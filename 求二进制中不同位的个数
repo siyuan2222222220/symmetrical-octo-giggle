@@ -1,0 +1,31 @@
+//求二进制中不同位的个数 
+//异或
+//异或不同为1，相同为2 
+
+int count_bit_one(int n)
+{
+	int count=0;
+	while(n)
+	{
+		n=n&(n-1);
+		count++;
+	}
+	return count;
+}
+
+int get_different_bit(int m,int n)
+{
+	int tmp=m^n;
+	return count_bit_one(tmp);
+}
+#include<stdio.h> 
+#include<string.h>
+int main()
+{
+	int m=0;
+	int n=0;
+	scanf("%d%d",&m,&n);
+	int count=get_different_bit(m,n);
+	printf("%d\n",count);
+	return 0; 
+}
