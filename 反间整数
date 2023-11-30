@@ -1,0 +1,53 @@
+//小南最近在资料上看到了一种叫"反间整数"的构造方法，
+//就是将一个整数n的数字顺序颠倒，然后再加上原先的数就得到了n的"反间整数"。
+//例如，对于给定的整数1325，首先将该整数的数字顺序颠倒，得到5231，
+//然后再加上原先的数1325，我们得到5231+1325=6556就是1325的"反间整数"。
+//注意如果颠倒之后的数字有前缀零，前缀零将会被忽略。
+//例如n = 100时，颠倒之后是1。聪明的你，能帮他编写一个程序实现"反间整数"的构造吗？
+//输入
+//多组样例。每行输入一个样例包括一个整数n（n是一个十进制整数，长度≤1000位)
+//输出
+//对于每一个输入的n，输出一个数据，表示n的"反间整数"。每个输出占一行。
+
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+	long long int n;
+	while(scanf("%lld",&n)!=EOF)
+	{
+		int flag=1;
+		
+		long long int len=0;
+	 	if(n<0)
+	 	{
+	 		n=-n;
+	 		flag=0;
+		}
+		long long int num=0;
+		long long int arr[1005]={0};
+		long long int tmp=n;
+	 	while(tmp>0)
+	 	{
+	 		
+	 		arr[len]=tmp%10;
+	 		num=num*10+arr[len];
+	 		tmp/=10;
+	 		len++;
+		}
+		long long int sum=n+num;
+		if(flag)
+		{
+			printf("%lld\n",sum);	
+		}
+		else
+		{
+			printf("-");
+			printf("%lld\n",sum);
+		}	
+		
+		 
+	}
+	return 0;
+}
