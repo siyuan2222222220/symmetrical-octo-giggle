@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main()
+{
+	int arr[10]={0};
+	int i=0;
+	for(i=0;i<10;i++)
+	{
+		scanf("%d",&arr[i]);
+	}
+	int lenth;
+	scanf("%d",&lenth);
+	int cnt=0;
+	i=0;
+	for(i=0;i<10;i++)
+	{
+		if(lenth+30>=arr[i])
+		{
+			cnt++;
+		}
+	}
+	printf("%d\n",cnt);
+	return 0;
+}
