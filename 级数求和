@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main()
+{
+	int k;
+	scanf("%d",&k);
+	double Sn=0.0;
+	int i=0;
+	for(i=0;Sn<=k;i++)
+	{
+		Sn+=1.0/(i+1);	
+	}
+	printf("%d\n",i);
+	return 0;
+ } 
