@@ -1,0 +1,42 @@
+#include<stdio.h>
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	
+	int g[20005]={0};
+	int t[20005]={0};
+	// t[i]表示值为i的数在集合中两两相加出现了几次，
+	//g[i]表示值为i的数是否在原集合中，1为在，0为不在
+	int cnt=0;
+	
+	int arr[105]={0};
+	int i=0;
+	for(i=1;i<=n;i++)
+	{
+		scanf("%d",&arr[i]);
+		g[arr[i]]=1;
+	}
+	
+	
+	i=0;
+	for(i=1;i<n;i++)
+	{
+		int j=0;
+		for(j=i+1;j<=n;j++)
+		{
+			t[arr[i]+arr[j]]++;
+		}
+	}
+	
+	int j=0;
+	for(j=0;j<20002;j++)
+	{
+		if(t[j]>0&&g[j])
+		{
+			cnt++;
+		}
+	}
+	printf("%d\n",cnt);
+	return 0;
+}
