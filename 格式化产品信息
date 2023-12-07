@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main()
+{
+	int num,month,day,year;
+	double price; 
+	scanf("%d%lf%d/%d/%d",&num,&price,&month,&day,&year);
+	printf("Item         Unit         Purchase\n");
+	printf("             Price        Date\n");
+	printf("%-13d$  %-10.2f",num,price);
+	printf("%02d",month);
+	printf("/%02d",day);
+	printf("/%04d\n",year);
+	return 0;
+ } 
