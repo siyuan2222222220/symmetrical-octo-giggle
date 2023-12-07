@@ -1,0 +1,12 @@
+//实验一 
+//计算球体体积
+#include<stdio.h>
+int main()
+{
+	int r;
+	scanf("%d",&r); 
+	double v;
+	v=4.0/3.0*3.14*r*r*r;
+	printf("%f\n",v);
+	return 0;
+ } 
