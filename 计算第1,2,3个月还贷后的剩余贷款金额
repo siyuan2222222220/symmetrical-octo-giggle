@@ -1,0 +1,14 @@
+//计算第1,2,3个月还贷后的剩余贷款金额 
+#include<stdio.h>
+int main()
+{
+	double loan,rate,payment;
+	scanf("%lf%lf%lf",&loan,&rate,&payment);
+	int i=0;
+	for(i=0;i<3;i++)
+	{
+		loan=loan-payment+1.0*(loan-payment)*rate/100/12;
+		printf("%.2f\n",loan);
+	}
+	return 0;
+ } 
