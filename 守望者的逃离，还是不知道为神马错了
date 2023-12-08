@@ -1,0 +1,90 @@
+#include<stdio.h>
+int main()
+{
+	//输入初始值 ，距离，沉没的时间 
+	int start,destination,sinktime;
+	scanf("%d%d%d",&start,&destination,&sinktime);
+	//计算出可以使用几次魔法，
+	//使用魔法以后剩余的时间和距离 
+	int leftpoint=start%10;  
+	int usedtime=start/10;
+	int distance=start/10*60;
+	int lefttime=sinktime-usedtime;
+	
+	//判断接下来是休息回复后使用魔法还是跑步
+	//这个问题就需要考虑很多了
+	//第一个就是剩余的魔法点数
+	//当我们先不考虑沉没时间的限制时 
+	//如果需要一秒来回复的话，那么就是说一共用了两秒，速度是30m/s 
+	//如果需要两秒的话，一共就用了三秒，速度是20m/s
+	//如果需要三秒的话，一共就用了四秒，速度是15m/s
+	//也就是说，如果需要回复一秒或两秒就选择魔法移动
+	//需要三秒的话就选择直接跑步
+	
+	//那么，如何判断需要几秒呢，这时候，
+	//魔法点数就派上用场了
+	//因为我们计算出的leftpoint在0~9的范围中 
+	//所以我们使用选择if else 
+	//又因为leftpoint>=6&&leftpoint<=9需要一秒 
+	//leftpoint>=2&&leftpoint<=5需要两秒
+	
+	//leftpoint<=1时就不能使用魔法了 (bushi)
+	//（有一个坑爹的地方，就是如果剩下的时间大于七秒）
+	//那么魔法可以移动120m,而跑步只有119m
+	//多少有点恶心到我了，yue
+	//也就是说如果leftpoint<=1&&lefttime>=7,就用魔法
+	
+	//此时，我们再加上剩余时间的限制
+	//因为使用魔法本身就需要一秒，
+	//而且还要加上回复的时间，
+	//当我们所需的时间已经超过了剩余的沉没时间时，
+	//我们就只能选择自己跑步了
+	
+	while(lefttime>0)
+	{
+		if(leftpoint>=6&&leftpoint<=9&&lefttime>=2)
+		{
+			lefttime-=2;
+			distance+=60;
+			leftpoint=leftpoint+4-10;
+		}
+		if(leftpoint>=2&&leftpoint<=9&&lefttime>=3)
+		{
+			lefttime-=3;
+			distance+=60;
+			leftpoint=leftpoint+8-10;
+		}
+		if(leftpoint<=1&&lefttime>=7)
+		{
+			lefttime-=7;
+			distance+=60;
+			leftpoint=leftpoint+12-10;
+		}
+		else 
+		{
+			lefttime--;
+			distance+=17;
+		}
+		if(distance>=destination)
+		{
+			usedtime=sinktime-lefttime;
+			break;
+		}
+	}
+	
+	//最后，我们再比较自己一共走的里程和
+	//最初离岛的距离
+	//如果大于等于就输出Yes和我们花费的时间 
+	//如果小于就输出No和 守望者能走的最远距离 
+	if(distance>=destination)
+	{
+	 	printf("Yes\n");
+	 	printf("%d\n",usedtime);
+	} 
+	else
+	{
+	  	printf("No\n");
+		printf("%d\n",distance);
+	}
+	return 0; 
+}
