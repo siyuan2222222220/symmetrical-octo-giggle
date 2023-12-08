@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char word1[105]={0};
+	char word2[105]={0};
+	scanf("%s%s",word1,word2);
+	int len1=strlen(word1);
+	int len2=strlen(word2);
+	int min=len1<len2?len1:len2;
+	int i=0;
+	for(i=0;i<min;i++)
+	{
+		putchar(word1[i]);
+		putchar(word2[i]);
+	}
+	i=0;
+	for(i=min;i<len1;i++)
+	{
+		putchar(word1[i]);
+	}
+	i=0;
+	for(i=min;i<len2;i++)
+	{
+		putchar(word2[i]);
+	}
+	return 0;
+} 
