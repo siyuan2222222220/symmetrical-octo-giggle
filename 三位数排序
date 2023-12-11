@@ -1,0 +1,30 @@
+#include<stdio.h>
+int main()
+{
+	int a,b,c;
+	scanf("%d%d%d",&a,&b,&c);
+	//因为是排序，所以每个元素都会输出
+	//所以不可以用三目操作符比较大小
+	//但是我觉得冒泡排序又是大材小用
+	int tmp;
+	if(a>b)
+	{
+		tmp=a;
+		a=b;
+		b=tmp;	
+	} 
+	if(b>c)
+	{
+		tmp=b;
+		b=c;
+		c=tmp;
+	}
+	if(a>b)
+	{
+		tmp=a;
+		a=b;
+		b=tmp;
+	}
+	printf("%d %d %d\n",a,b,c);
+	return 0;
+}
