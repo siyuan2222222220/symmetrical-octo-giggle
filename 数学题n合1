@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<string.h> 
+#include<math.h>
+int main() {
+    int T;
+    scanf("%d",&T);
+    if (T == 1) { 
+        printf("I love Luogu!\n"); 
+    } else if (T == 2) {
+        printf("6 4\n");
+    } else if (T == 3) {
+       printf("%d\n%d\n%d\n",14/4,14/4*4,14-14/4*4); 
+    } else if (T == 4) {
+        printf("%.3f\n",1.0*500/3);
+    } else if (T == 5) {
+         printf("%d\n",(260+220)/(12+20));
+    } else if (T == 6) {
+        printf("10.8167\n");
+    } else if (T == 7) {
+        printf("%d\n%d\n%d\n",100+10,100+10-20,0);
+    } else if (T == 8) {
+    	const double pi=3.141593;
+        printf("%.4f\n%.4f\n%.3f\n",10*pi,25*pi,125*pi*4.0/3);
+    } else if (T == 9) {
+       	printf("22\n");
+    } else if (T == 10) {
+       	printf("9\n");
+    } else if (T == 11) {
+        printf("%.4f",1.0*100/(8-5));
+    } else if (T == 12) {
+        printf("%d\n%c\n",'M'-'A'+1,17+'A');
+    } else if (T == 13) {
+        printf("16\n");
+    } else if (T == 14) {
+		printf("50\n");
+    }
+    return 0;
+}
