@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+#include<string.h>
+
+int main()
+{
+	double m,h;
+	scanf("%lf%lf",&m,&h);
+	double BMI=m/h/h;
+	if(fabs(BMI)<fabs(18.5))
+	{
+		printf("Underweight\n");
+	}
+	else if(fabs(BMI)>=fabs(18.5)&&fabs(BMI)<fabs(24))
+	{
+		printf("Normal\n");
+	}
+	else if(fabs(BMI)>=fabs(24))
+	{
+		
+		printf("%.4f\n",BMI);
+		printf("Overweight\n");
+	}
+	return 0;
+}
