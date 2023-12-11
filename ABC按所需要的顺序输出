@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	//实现a,b,c的排序 
+	int a,b,c;
+	scanf("%d%d%d",&a,&b,&c);
+	char ch[3];
+	scanf("%s",ch);
+	int tmp;
+	if(a>b)
+	{
+		tmp=a;
+		a=b;
+		b=tmp;	
+	} 
+	if(b>c)
+	{
+		tmp=b;
+		b=c;
+		c=tmp;
+	}
+	if(a>b)
+	{
+		tmp=a;
+		a=b;
+		b=tmp;
+	}
+	//根据输入的ABC选择如何输出 
+	if(strcmp(ch,"ABC")==0)
+	{
+		printf("%d %d %d\n",a,b,c);
+	}
+	if(strcmp(ch,"ACB")==0)
+	{
+		printf("%d %d %d\n",a,c,b);
+	}
+	if(strcmp(ch,"BAC")==0)
+	{
+		printf("%d %d %d\n",b,a,c);
+	}
+	if(strcmp(ch,"BCA")==0)
+	{
+		printf("%d %d %d\n",b,c,a);
+	}
+	if(strcmp(ch,"CBA")==0)
+	{
+		printf("%d %d %d\n",c,b,a);
+	}
+	if(strcmp(ch,"CAB")==0)
+	{
+		printf("%d %d %d\n",c,a,b);
+	}
+	return 0;
+}
