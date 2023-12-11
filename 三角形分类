@@ -1,0 +1,62 @@
+#include<stdio.h>
+int main()
+{
+	int a,b,c;
+	scanf("%d%d%d",&a,&b,&c);
+	//我是这样想的，因为三角形的判定是
+	//两条短的边相加>=另一条边
+	//那我需要先排序，由小到大 
+	int tmp;
+	if(a>b)
+	{
+		tmp=a;
+		a=b;
+		b=tmp;	
+	} 
+	if(b>c)
+	{
+		tmp=b;
+		b=c;
+		c=tmp;
+	}
+	if(a>b)
+	{
+		tmp=a;
+		a=b;
+		b=tmp;
+	}
+	//接下来则判断是不是三角形
+	
+	if(a+b<=c)
+	{
+		printf("Not triangle\n");
+	}
+	else
+	{
+		//再判断是什么三角形
+		//这里判断的是直角，锐角，钝角 
+		if(a*a+b*b==c*c)
+		{
+			printf("Right triangle\n");
+		}
+		if(a*a+b*b>c*c)
+		{
+			printf("Acute triangle\n");
+		}
+		if(a*a+b*b<c*c)
+		{
+			printf("Obtuse triangle\n");
+		}
+		//这里判断的是等腰，等边 
+		if(a==b)
+		{
+			printf("Isosceles triangle\n");
+		}
+		if(a==b&&b==c)
+		{
+			printf("Equilateral triangle\n");
+		}	
+	} 
+	
+	return 0;
+}
