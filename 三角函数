@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+int gcd(int m,int n)
+{
+	int t;
+	while(n>0){
+		t=m%n;
+		m=n;
+		n=t;
+	}
+	return m;
+} 
+int main()
+{
+	//输入三条边的长度 
+	int a,b,c;
+	scanf("%d%d%d",&a,&b,&c);
+	//对三条边由大到小排序 
+	int tmp;
+	if(a>b)
+	{
+		tmp=a;
+		a=b;
+		b=tmp;	
+	} 
+	if(b>c)
+	{
+		tmp=b;
+		b=c;
+		c=tmp;
+	}
+	if(a>b)
+	{
+		tmp=a;
+		a=b;
+		b=tmp;
+	}
+	//比较a/c和b/c 
+	//题目要求是输出较小锐角的函数值
+	//所以只有他俩
+	//不管如何，我们得先找a,c和b,c分别的最大因子 
+	//写个函数 
+	//辗转相除法
+	int ret1=gcd(a,c);
+	int ret2=gcd(b,c); 
+	if(fabs(1.0*a/c)<fabs(1.0*b/c))
+	{
+		printf("%d/%d\n",a/ret1,c/ret1);
+	}
+	else
+	{
+		printf("%d/%d\n",b/ret2,c/ret2);
+	}
+	return 0;
+ } 
+ 
