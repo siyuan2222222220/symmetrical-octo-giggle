@@ -1,0 +1,43 @@
+#include<stdio.h>
+int main()
+{
+	int num;
+	scanf("%d",&num);
+	if(num==0)
+	{
+		printf("0 0 0 1\n");
+	}
+	else
+	{
+		if(num%2==0&&num>4&&num<=12)
+	{
+		printf("1 ");
+	}
+	else
+	{
+		printf("0 ");
+	}
+	if(num%2==0||(num>4&&num<=12)||(num%2==0&&num>4&&num<=12))
+	{
+		printf("1 ");
+		
+	}
+	else
+	{
+		printf("0 ");
+	}
+	if((num%2==0&&num<=4&&num>12)||num>4&&num<=12&&num%2!=0)
+	{
+		printf("1 ");
+	}
+	else
+	printf("0 ");
+	if(num<=4&&num>12&&num%2!=0)
+	{
+		printf("1 ");
+	}
+	else
+	printf("0 ");
+	}
+	return 0;
+}
