@@ -1,0 +1,27 @@
+#include<stdio.h>
+int main()
+{
+	//看题目感觉有点复杂
+	//咱们慢慢来看嘛
+	int n,k;
+	scanf("%d%d",&n,&k);
+	int sumA=0;
+	int sumB=0;
+	int cnt=0;
+	
+	int i=0;
+	for(i=1;i<=n;i++)
+	{
+		if(i%k==0)
+		{
+			sumA+=i;
+			cnt++;	
+		}	
+		else
+		sumB+=i;
+	} 
+	double averageA=1.0*sumA/cnt;
+	double averageB=1.0*sumB/(n-cnt);
+	printf("%.1f %.1f\n",averageA,averageB);
+	return 0;
+}
