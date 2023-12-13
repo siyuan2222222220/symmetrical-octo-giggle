@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+int main()
+{
+	long long x1,y1,x2,y2,x3,y3;
+	while(scanf("%lld%lld%lld%lld%lld%lld",&x1,&y1,&x2,&y2,&x3,&y3)!=EOF)
+	{
+		long long int len1=(x1-x2)*(x1-x2)+(y1-y2)*(y1-y2);
+		long long int len2=(x1-x3)*(x1-x3)+(y1-y3)*(y1-y3);
+		long long int len3=(x2-x3)*(x2-x3)+(y2-y3)*(y2-y3);
+		long long int min=len1;
+		if(len2<min)
+		{
+			min=len2;
+		}
+		if(len3<min)
+		{
+			min=len3;
+		}
+		double lenth=sqrt(min);
+		printf("%.2f\n",lenth);
+	}
+}
