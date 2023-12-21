@@ -1,0 +1,54 @@
+#include<stdio.h>
+int main()
+{
+	int a,b,c;
+	while(scanf("%d%d%d",&a,&b,&c)!=EOF)
+	{
+		if(a>b)
+		{
+			int tmp=a;
+			a=b;
+			b=tmp;
+		}
+		if(a>c)
+		{
+			int tmp=a;
+			a=c;
+			c=tmp;
+		}
+		if(b>c)
+		{
+			int tmp=b;
+			b=c;
+			c=tmp;
+		}
+		int red=0;
+		if(b-a<=100)
+		{
+			red+=b-a;
+		}
+		else
+		{
+			red+=b;
+		}
+		if(c-a<=100)
+		{
+			red+=c-a;
+		}
+		else
+		{
+			red+=c;
+		}
+		if(c-b<=100)
+		{
+			red+=c-b;
+		}
+		else
+		{
+			red+=c;
+		}
+		printf("%d\n",red);
+		
+	}
+	return 0;
+}
