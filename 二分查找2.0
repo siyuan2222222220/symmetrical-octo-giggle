@@ -1,0 +1,49 @@
+#include<stdio.h>
+int get(int arr[],int x,int l,int r) 
+{
+	int left=0;
+	int right=r-1;
+	int pos;
+	while(left<=right) 
+	{
+		int mid=(left+right)/2;
+		if(arr[mid]==x)
+		{
+			pos=mid;
+			break;
+		}
+		if(arr[mid]>x)
+		{
+			right=mid-1;
+		}
+		if(arr[mid]<x)
+		{
+			left=mid+1;
+		}
+		
+	}
+	return pos;
+}
+int main()
+{
+	int n,m;
+	while(scanf("%d%d",&n,&m)!=EOF)
+	{
+		int arr[n];
+		int i=0;
+		for(i=0;i<n;i++)
+		{
+			scanf("%d",&arr[i]);		
+		}
+		
+		int x;
+		for(i=0;i<m;i++)
+		{
+			scanf("%d",x);
+			int pos=get(arr,x,0,n-1);
+			printf("%d\n",pos+1);
+		}
+		
+	}
+	return 0;
+}
