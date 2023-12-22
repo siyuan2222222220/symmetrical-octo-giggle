@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+#include<stdlib.h>
+#include<ctype.h>
+#include<time.h>
+long long qpow(long long x,long long n,long long m)
+{
+	if(n==0)
+	{
+		return 1;
+	}
+	else
+	{
+		long long y=qpow(x,n/2,m);
+		if(n%2==0)
+		{
+			return ((y%m)*(y%m))%m;
+		}
+		else
+		{
+			return (((x%m*y%m)%m)*(y%m))%m;
+		}
+	}
+	
+}
+int main()
+{
+	long long x,n,m;
+	while(scanf("%lld%lld%lld",&x,&n,&m)!=EOF)
+	{
+		long long num=qpow(x,n,m);
+		printf("%lld\n",num%m);
+	}
+	return 0;
+ } 
