@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<math.h>
+void carpet(int arr[][1024],int row,int col,int num)
+{
+	if(num==1)
+	{
+		arr[row][col]=1;
+		return ;
+	}
+	int i=row;
+	for(i=row;i<row+num/2;i++)
+	{
+		int j=col;
+		for(j=col;j<col+num/2;j++)
+		{
+			arr[i][j]=1;
+		}
+	}
+	carpet(arr,row,col+num/2,num/2);
+	carpet(arr,row+num/2,col+num/2,num/2);
+}
+int main()
+{
+	int n;
+	while(scanf("%d",&n)!=EOF)
+	{
+		int num=(int)pow(2,n);
+		int arr[1024][1024]={0};
+		carpet(arr,0,0,num);
+		int i=0;
+		for(i=0;i<num;i++)
+		{
+			int j=0;
+			for(j=0;j<num;j++)
+			{
+				printf("%d ",arr[i][j]);
+			}
+			printf("\n");
+		}
+	}
+	return 0;
+ } 
