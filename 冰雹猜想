@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	//因为从n开始变化就需要输出逆序
+	//所以我在想可不可以从1开始经过变化得到最后的数
+	//但是明显行不通，因为反着来可能两个条件都满足 
+	//不对，应该可以，我可以根据
+	//变化之后的结果是奇偶来判断
+	//嘶，不行，因为i可以大于n并且
+	//选择环节i*2%2==0相当于对谁都成立
+	//那还是挨着算然后存数组吧 
+	int arr[1000];
+	int i=1;
+	arr[0]=n;
+	while(n!=1)
+	{
+		
+		if(n%2==0)
+		{
+			n=n/2;
+			arr[i]=n;
+		}
+		else
+		{
+			n=n*3+1;
+			arr[i]=n;
+		}
+		i++;
+	}
+	int j=0;
+	for(j=i-1;j>=0;j--)
+	{
+		printf("%d ",arr[j]);
+	}
+	return 0;
+ } 
