@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<math.h>
+#include<time.h> 
+#include<ctype.h>
+void move(int n,char a,char b)
+{
+	printf("%d:from %c to %c\n",n,a,b); 
+}
+int hanoi(int n,char a ,char b,char c)
+{
+	if(n==1)
+	{
+		move(n,a,c);
+	}
+	else
+	{
+       //看不懂思密达 
+        hanoi(n-1,a,c,b); 
+      
+        move(n,a,c);
+       
+        hanoi(n-1,b,a,c); 
+    
+	}
+}
+int main()
+{
+	int n;
+	while(scanf("%d",&n)!=EOF)
+	{
+		//每组输出若干行，第一行包含一个整数 m，
+		//表示需要进行的最少操作次数。 
+		//接下来 m 行，每行包含一个操作，
+		//按操作顺序从上往下排列。 
+		//每个操作包含一个正整数 k 
+		//以及两个字符 x、y，
+		//表示此次操作将圆盘 k 从柱子 x 移动到柱子 y，
+		//输出形式为 k:from x to y
+		//递归思想的应用
+		//我们反着来推理
+		//c柱上一定是从最下面的开始放
+		//举个例子
+		//如果说一共有三块盘子123
+		//那么肯定要先把3放到c里面去
+		//然后依次递减放2和1
+		//就是说把问题由大化小
+		long long cnt=pow(2,n)-1;
+		printf("%lld\n",cnt);
+		hanoi(n,'a','b','c'); 
+	}
+	return 0;
+}
