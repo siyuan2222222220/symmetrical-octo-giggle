@@ -1,0 +1,36 @@
+#include<stdio.h>
+int bessie(int m,int num)
+{
+	//m表示起始的数字
+	//num表示要计数的数码
+	int cnt=0;
+	while(m)
+	{
+		if(m%10==num)
+		{
+			cnt++;	
+		}	
+		m/=10;
+	}
+	return cnt; 
+}
+int main()
+{
+	int m,n;
+	scanf("%d%d",&m,&n);
+	int arr[10]={0};
+	int i=0;
+	for(i=m;i<=n;i++)
+	{
+		int j=0;
+		for(j=0;j<10;j++)
+		{
+			arr[j]+=bessie(i,j);
+		}
+	}
+	for(i=0;i<10;i++)
+	{
+		printf("%d ",arr[i]);
+	 } 
+	return 0;
+}
