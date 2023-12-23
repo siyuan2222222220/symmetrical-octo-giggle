@@ -1,0 +1,54 @@
+#include<limits.h>
+int main()
+{
+	int w,x,h;
+	scanf("%d%d%d",&w,&x,&h);
+	int q;
+	scanf("%d",&q);
+	int arr[21][21][21]={0};
+	int x1,y1,z1,x2,y2,z2;
+	
+	while(q--)
+	{
+		scanf("%d%d%d%d%d%d",&x1,&y1,&z1,&x2,&y2,&z2);
+		int min_x=x1<x2?x1:x2;
+		int max_x=x1>x2?x1:x2;
+		int min_y=y1<y2?y1:y2;
+		int max_y=y1>y2?y1:y2;
+		int min_z=z1<z2?z1:z2;
+		int max_z=z1>z2?z1:z2;
+		int i=0;
+		for(i=min_x;i<=max_x;i++)
+		{
+			int j=0;
+			for(j=min_y;j<=max_y;j++)
+			{
+				int k=0;
+				for(k=min_z;k<=max_z;k++)
+				{
+					arr[i][j][k]=1;
+					//做标记表示这个坐标的小块会被激光扫描无 
+				}
+			}
+		}
+	}
+	int i=0;
+	int cnt=0;
+	for(i=1;i<=w;i++)
+	{
+		int j=0;
+		for(j=1;j<=x;j++)
+		{
+			int k=0;
+			for(k=1;k<=h;k++)
+			{
+				if(arr[i][j][k]==0)
+				{
+					cnt++;
+				}
+			}
+		}
+	} 
+	printf("%d\n",cnt);
+	return 0;
+ } 
