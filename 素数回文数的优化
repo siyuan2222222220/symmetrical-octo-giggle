@@ -1,0 +1,46 @@
+#include<stdio.h>
+int IsPrime(int n)
+{   
+ // 判断素数 
+	if (n < 2) return 0; 
+	// 小于2都不是素数
+	int i;
+	for (i = 2; i*i <=n; i ++) 
+	// 从2枚举到根号n
+	if (n % i == 0) return 0;
+	 // 有因数！不是素数
+	return 1; 
+	// 是素数
+}
+int IsRever(int n)
+{    
+// 判断回文数
+	int tmp = n, NEW = 0; 
+	// tmp存储n，new为翻转后的n
+	while (tmp)
+	{ 
+	// tmp到零循环结束
+		NEW = NEW * 10 + tmp % 10; 
+		// 反向相加
+		tmp /= 10; 
+		// tmp去掉最后一位
+	}
+	return NEW == n; 
+	// 如果new == n，则是回文数，反之不是
+}
+int main(){
+    int n, cnt = 0; 
+	// 计数器cnt
+	scanf("%d",&n);
+	// 输入
+	int i=11;
+	for (i = 11; i <= n; i ++)
+	 // 枚举
+	if (IsPrime(i) && IsRever(i)) cnt ++;
+		// 满足素回文数
+	printf("%d\n",cnt);
+	 // 输出总数
+	return 0; 
+	// done
+}
+ 
