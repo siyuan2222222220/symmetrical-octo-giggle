@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<string.h>
+char dict[36]="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+int main()
+{
+	//x是输入的十进制数 
+	int x;
+	scanf("%d",&x);
+	//m是需要转换的进制 
+	int m;
+	scanf("%d",&m);
+	//十进制的数如何转化为任意进制的数
+	//24为一个十进制的数 
+	//转化为2进制就是不断除以2
+	//24/2=12余0,12/2=6余0，6/2=3余0,3/2=1余1
+	//倒着放回来就是11000
+	//验证8+16=24，正确
+	//声明一个数组来保存转换以后的数倒着放 
+	//再用一个数组正着放回来 
+	char arr[20]={0};
+	char t[20]={0};
+	int i=0; 
+	while(x)
+	{
+		arr[i]=dict[x%m];
+		i++;
+		x/=m;
+	} 
+	int len=strlen(arr);
+	int j=0;
+	for(j=len-1;j>=0;j--)
+	{
+		t[len-j-1]=arr[j];
+	}
+	printf("%s\n",t);
+	return 0; 
+}
