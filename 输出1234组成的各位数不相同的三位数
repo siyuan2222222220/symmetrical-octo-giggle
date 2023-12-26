@@ -1,0 +1,24 @@
+#include<stdio.h>
+int main()
+{
+	int cnt=0;
+	int s=1;
+	for(s=1;s<=4;s++)
+	{
+		int g=1;
+		for(g=1;g<=4;g++)
+		{
+			int d=1;
+			for(d=1;d<=4;d++)
+			{
+				if(s!=g&&s!=d&&g!=d)
+				{
+					printf("%d%d%d ",s,g,d);
+					cnt++;
+				}
+			}
+		}
+	}
+	printf("\n%d\n",cnt);
+	return 0;
+ } 
