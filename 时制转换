@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int hh,mm;
+	char c;
+	char d;
+	while(scanf("%d:%d%c%c",&hh,&mm,&c,&d)!=EOF)
+	{
+		if(c=='a'||c=='A')
+		{
+			if(hh==12)
+			{
+				printf("00:%02d\n",mm);
+			}
+			else
+			{
+				printf("%02d:%02d\n",hh,mm);
+			}
+		}
+		if(c=='p'||c=='P')
+		{
+			if(hh==12)
+			{
+				printf("12:%02d\n",mm);
+			}
+			else
+			{
+				printf("%02d:%02d\n",hh+12,mm);
+			}
+		}
+	}
+	return 0;
+}
