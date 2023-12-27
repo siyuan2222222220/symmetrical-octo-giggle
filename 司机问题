@@ -1,0 +1,79 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+#include<limits.h>
+#include<time.h>
+#include<stdlib.h>
+#include<math.h>
+int noon[105]={0};
+int night[105]={0};
+int main()
+{
+	int n,d,r;
+	while(scanf("%d%d%d",&n,&d,&r)!=EOF)
+	{
+		//n表示有n个司机，n条下午和晚上的路线
+		//d表示不收取加班费的最大行驶总时间 
+		//r表示超出部分每单位时间支付r元加班费。
+		
+		//输入下午路线的行驶时间 
+		int i=0;
+		for(i=0;i<n;i++)
+		{
+			scanf("%d",&noon[i]);
+		}
+		//输入晚上路线的行驶时间 
+		for(i=0;i<n;i++)
+		{
+			scanf("%d",&night[i]);
+		}
+		//思考，什么时候 输出最小加班总费用
+		//就是要让每个人的工作时间尽可能多
+		//但是又尽量不能超过最大行驶时间
+		//那就是说用循环相加的时候
+		//noon[i]+night[j]-10000的绝对值最小
+		//我们声明一个min=10000，然后和这个绝对值相比
+		//完了以后因为这条路线已经被采用了
+		//那该如何保证其他司机只能采用别的路线呢
+		//因为一个司机的行驶时间均不超过10000，
+		//所以我们就让此时的noon[i]和night[j]=10001
+		//之后加上条件如果noon[i]或night[j]==10001,就break；
+		
+		//首先找到线路,然后再说超出的钱怎么算 
+		int sum=0;
+		int tmp=0;
+		int num=0; 
+		for(i=0;i<n;i++)
+		{
+			int min=10001;
+			int j=0;
+			for(j=0;j<n;j++)
+			{
+				if(abs(noon[i]+night[j]-d)<min&&night[j]!=10001)
+				{
+					min=abs(noon[i]+night[j]-d);
+					tmp=night[j];
+					num=noon[i]+night[j]-d;
+				}
+				if(min==0)
+				{
+					night[j]=10001;
+					break;	
+				}
+			}
+			for(i=0;i<n;i++)
+			{
+				if(tmp==night[i])
+				{
+					night[i]=10001;
+					break;
+				}
+			}
+			if(num>0)
+			sum+=min*r;	
+		} 
+		printf("%d\n",sum);		
+				 
+	}
+	return 0;
+}
