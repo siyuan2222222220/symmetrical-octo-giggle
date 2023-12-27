@@ -1,0 +1,41 @@
+//打家劫舍
+#include<stdio.h>
+int djjs_dg(int M[],int lenth)
+{
+	if(lenth==1)
+	return M[0];
+	else if(lenth==2)
+	{
+		int max1=M[0]>M[1]?M[0]:M[1];
+		return max1;
+	}
+	else
+	{
+		int M1[lenth-1];
+		int M2[lenth-2];
+		int i=0;
+		for(i=0;i<lenth-2;i++)
+		{
+			M1[i]=M[i];
+			M2[i]=M[i];
+		}
+		M1[lenth-2]=M[lenth-2];
+		
+		return djjs_dg(M1,lenth-1)>(djjs_dg(M2,lenth-2)+M[lenth-1])?djjs_dg(M1,lenth-1):(djjs_dg(M2,lenth-2)+M[lenth-1]);
+	}	
+}
+int main()
+{
+	int lenth=0;
+	int arr[1000]; 
+	int n;
+	scanf("%d",&n);
+	int i=0;
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&arr[lenth++]);	
+	}
+	int num=djjs_dg(arr,lenth);	
+	printf("%d\n",num);
+	return 0;
+} 
