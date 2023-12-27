@@ -1,0 +1,39 @@
+#include<stdio.h>
+int main()
+{
+	int m;
+	while(scanf("%d",&m)!=EOF)
+	{
+		double bonus=0;
+		if(m<=36000)
+		{
+			bonus=m*0.03;
+		}	
+		else if(m<=144000)
+		{
+			bonus=m*0.1-2520;		
+		}
+		else if(m<=300000)
+		{
+			bonus=m*0.2-16920;
+		}
+		else if(m<=420000)
+		{
+			bonus=m*0.25-31920;
+		}
+		else if(m<=660000)
+		{
+			bonus=m*0.3-52920;
+		}
+		else if(m<=960000)
+		{
+			bonus=m*0.35-85920;
+		}
+		else 
+		{
+			bonus=m*0.45-181920;
+		}
+		printf("%lld\n",(long long)bonus);
+	}	
+	return 0;
+} 
