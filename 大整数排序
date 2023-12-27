@@ -1,0 +1,58 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+void bubble(char arr[][1005],int n) 
+{
+	int i=0;
+	for(i=0;i<n-1;i++)
+	{
+		int flag=1;
+		int j=0;
+		for(j=0;j<n-i-1;j++)
+		{
+			int needchange=0; 
+			if(strlen(arr[j])>strlen(arr[j+1]))
+			needchange=1;
+			if(strlen(arr[j])==strlen(arr[j+1])&&strcmp(arr[j],arr[j+1])>0)
+			needchange=1;			
+			if(needchange)
+			{
+				char t[10005];
+				strcpy(t,arr[j]);
+				strcpy(arr[j],arr[j+1]);
+				strcpy(arr[j+1],t);
+				flag=0;
+			}
+		}
+		if(flag)
+		break;
+	}
+}
+int main()
+{
+	int n;
+	while(scanf("%d",&n)!=EOF)
+	{
+		char arr[205][1005];
+		//看不懂为什么要用结构体
+		//我就先用二维数组试试看
+		//这个二维数组是字符串数组
+		//arr[n][1005] 
+		//每一次输入就是输入了%s，
+		//横排的一维字符串数组 
+		//在我们写一个函数对字符串数组进行排序前
+		//先写它在主函数中怎么应用
+		int i=0;
+		for(i=0;i<n;i++)
+		{
+			scanf("%s",arr[i]);
+		}
+		bubble(arr,n);
+		for(i=0;i<n;i++)
+		{
+			printf("%s\n",arr[i]);	
+		} 
+	}
+	return 0;
+}
