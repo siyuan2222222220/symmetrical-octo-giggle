@@ -1,0 +1,36 @@
+//自底向上法
+#include<stdio.h>
+#include<string.h>
+int arr[1000]={0};
+//arr数组用来保存中间的计算结果 
+int fib_zdxs(int n)
+{
+	if(n==0)
+	return 0;
+	if(n==1||n==2)
+	return 1;
+	else
+	{
+		int i=0;
+		for(i=3;i<=n;i++)
+		{
+			arr[i]=arr[i-1]+arr[i-2];
+				
+		}
+		return arr[n];			
+	}
+	
+}
+int main()
+{
+	int i=0;
+	for(i=0;i<1000;i++)
+	{
+		arr[i]=1;
+	}
+	int n;
+	scanf("%d",&n);
+	long long num=fib_zdxs(n);
+	printf("%lld\n",num);
+	return 0;
+}
