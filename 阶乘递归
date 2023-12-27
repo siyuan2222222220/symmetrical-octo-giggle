@@ -1,0 +1,20 @@
+#include<stdio.h>
+int jc(int n)
+{
+	if(n==1||n==0)
+	{
+		return 1; 
+	}
+	else
+	return n*jc(n-1);
+}
+
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	long long num=jc(n);
+	printf("%lld\n",num);
+	return 0;
+}
+ 
