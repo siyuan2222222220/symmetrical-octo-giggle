@@ -1,26 +1,115 @@
 #include<stdio.h>
 int main()
 {
-	
-	int i=0;m
-	int cnt=0;
-	for(i=2;i<=168/2;i++)
+	int n,m;
+	while(scanf("%d%d",&n,&m)!=EOF)
 	{
 		
-		if(168%i==0)
+		int str[10][10]={0}; 
+		//声明一个数组存放矩阵并且初始化矩阵 
+		int arr[10][10]={0};
+		int num=1;
+		int i=0;
+		for(i=0;i<n;i++)
 		{
-			
-			int j=168/i;	
-			if((j+i)%2==0&&(j-i)%2==0)
+			int j=0;
+			for(j=0;j<n;j++)
 			{
-				int m=(i+j)/2;
-				int n=(i-j)/2;
-				int x=n*n-100;
-				cnt++;
-				if(cnt<=4)
-				printf("%d\n",x); 
-			} 
+				arr[i][j]=num;
+				str[i][j]=num;
+				num++;
+			}
 		}
+		
+		//输入m条指令
+		// 1）指令1：“L x y”表示矩阵的第x行循环左移y次；
+		//指令2：“R x y”表示矩阵的第x行循环右移y次；
+		//指令3：“U x y”表示矩阵的第x列循环上移y次；
+		//指令4：“D x y”表示矩阵的第x列循环下移y次；
+		char com;
+		int x,y;
+		//再声明一个数组保存就不会覆盖掉原数据
+		
+		for(i=0;i<m;i++)
+		{
+			char c;
+			c=getchar(); 
+			scanf("%c%d%d",&com,&x,&y);
+			x=x-1;
+			y=y%n;
+			if(com=='L')
+			{
+				//l表示左移，x为横排，y为移动的次数
+				int j=0;
+				for(j=0;j<n;j++)
+				{
+					
+					
+					if(j-y<0)
+					{
+						str[x][n+j-y]=arr[x][j];	
+					}
+					else
+					str[x][j-y]=arr[x][j];	
+				} 
+			}
+			else if(com=='R')
+			{
+				int j=0;
+				for(j=0;j<n;j++)
+				{
+					
+				
+					if(j+y>=n)
+					{
+						str[x][j+y-n]=arr[x][j];	
+					}
+					else
+					str[x][j+y]=arr[x][j];	
+				} 
+			}
+			else if(com=='U')
+			{
+				int j=0;
+				for(j=0;j<n;j++)
+				{
+					
+					
+					if(j-y<0)
+					{
+						str[n+j-y][x]=arr[j][x];	
+					}
+					else
+					str[j-y][x]=arr[j][x];	
+				} 
+			}
+			else if(com=='D')
+			{
+				int j=0;
+				for(j=0;j<n;j++)
+				{
+					
+				
+					if(j+y>=n)
+					{
+						str[j+y-n][x]=arr[j][x];	
+					}
+					else
+					str[j+y][x]=arr[j][x];	
+				} 
+			}
+		}
+		//打印输出str数组，即变换之后的数组 
+		for(i=0;i<n;i++)
+		{
+			int j=0;
+			for(j=0;j<n;j++)
+			{
+				printf("%d ",str[i][j]);
+			}
+			
+		}
+		printf("\n");	
 	}
 	return 0;
- } 
+}
