@@ -1,0 +1,40 @@
+//找出1-1000的所有完数
+//1.判断是不是完数
+//2.遍历1-1000的数
+//3.输出 
+#include<stdio.h>
+int cmpNum(int m)
+{
+	int sum=0; 
+	int n=1;
+	for(n=1;n<m;n++)
+	{
+		if(m%n==0)
+		{
+			sum+=n;	
+		}	
+		else 
+		;
+	} 
+	if(m==sum)
+	{
+		return 1;
+	}
+	else
+	return 0;
+}
+int main()
+{
+	//m表示需要判断的数
+	//n表示因子，sum表示因子的和 
+	int cmpNum(int m);
+	int i=1;
+	for(i=1;i<=1000;i++)
+	{
+		if(cmpNum(i))
+		{
+			printf("%d\n",i);
+		}
+	}
+	return 0;
+}
