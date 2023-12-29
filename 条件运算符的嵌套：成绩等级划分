@@ -1,0 +1,11 @@
+#include<stdio.h>
+//条件运算符的嵌套：成绩等级划分 
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	char grade;
+	grade=(n>=90)?'A':(n>=60)?'B':'C';
+	printf("%c\n",grade);
+	return 0; 
+ } 
