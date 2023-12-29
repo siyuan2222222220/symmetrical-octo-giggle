@@ -1,0 +1,15 @@
+//猴子吃桃问题，从后往前推
+#include<stdio.h>
+int main()
+{
+	//吃到第十天的时候只剩一个桃子
+	//x表示桃子的数量 
+	int x=1;
+	int i;
+	for(i=9;i>=1;i--)
+	{
+		x=(x+1)*2;	
+	} 
+	printf("%d\n",x);
+	return 0;
+ } 
