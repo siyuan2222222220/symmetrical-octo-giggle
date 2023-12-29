@@ -1,0 +1,31 @@
+//统计英文字母数字空格和其他字符
+#include<stdio.h>
+int main() 
+{
+	char c;
+	c=getchar();
+	int num=0;
+	int letter=0;
+	int blanket=0;
+	int others=0;
+	while(c!='\n')
+	{
+		if(c>='a'&&c<='z'||c>='A'&&c<='Z')
+		{
+			letter++;
+		}
+		else if(c>='0'&&c<='9')
+		{
+			num++;
+		}
+		else if(c=' ')
+		{
+			blanket++;
+		}
+		else
+		others++;
+		c=getchar();
+	}
+	printf("数字=%d,字母=%d,空格=%d,其他=%d\n",num,letter,blanket,others);	
+	return 0;
+}
