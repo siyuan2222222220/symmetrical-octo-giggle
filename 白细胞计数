@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<math.h>
+void bubbleSort(double data[],int len)
+{
+	int i;
+    for(i=0;i<len-1;i++)
+    {
+        int flag=1;
+        int j;
+		for(j=0;j<len-1-i;j++)
+        {
+            if(data[j]>data[j+1])
+            {
+                double tmp = data[j];
+                data[j]=data[j+1];
+                data[j+1]=tmp;
+                flag=0;
+            }
+        }
+        if(flag)
+            break;
+    }
+}
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	double arr[n];
+	int i=0;
+	for(i=0;i<n;i++)
+	{
+		scanf("%lf",&arr[i]);
+		//排序 
+	}
+	bubbleSort(arr,n);
+	double sum=0;
+	for(i=1;i<n-1;i++)
+	{
+		sum+=arr[i];
+	}
+	double av=sum/(n-2);
+	double cha;
+	if(arr[n-2]-av>av-arr[1])
+	{
+		cha=arr[n-2]-av;
+	} 
+	else
+	cha=av-arr[1];
+	printf("%.2lf %.2lf\n",av,cha);
+	return 0;
+}
