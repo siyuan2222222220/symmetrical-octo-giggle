@@ -1,0 +1,16 @@
+#include<stdio.h>
+int main()
+{
+	//奇数求和
+	int m,n;
+	scanf("%d%d",&m,&n);
+	int sum=0;
+	int i=0;
+	for(i=m;i<=n;i++)
+	{
+		if(i%2!=0)
+		sum+=i;
+	}
+	printf("%d\n",sum);
+	return 0;
+ } 
