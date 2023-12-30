@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	//根据输入字母判断是星期几，switch语句 
+	char c;
+	c=getchar();
+	getchar();
+	//清空回车 
+	switch(c)
+	{
+		case 'm':
+		printf("monday\n");
+		break;
+		case 't':
+		printf("please input another number\n");
+		char j=getchar();
+		if(j=='u')
+		printf("tuesday\n");
+		if(j=='h')
+		{
+			printf("thursday\n");
+		 } 
+		break;
+		case 'w':
+		printf("wednesday\n");
+		break;
+		case 'f':
+		printf("friday\n");
+		break;
+		case 's':
+		printf("please input another number\n");
+		j=getchar();
+		if(j=='u')
+		printf("sunday\n");
+		if(j=='a')
+		{
+			printf("saturday\n");
+		 } 
+		break;	
+		default:
+		break;
+			
+	}
+	return 0;
+ } 
