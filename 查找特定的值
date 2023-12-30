@@ -1,0 +1,55 @@
+#include<stdio.h>
+int main()
+{
+	// 查找特定的值
+	int n;
+	scanf("%d",&n);
+	int arr[n];
+	int i=0;
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&arr[i]);	
+	}
+	int x;#include<stdio.h>
+int main()
+{
+	// 查找特定的值
+	int n;
+	scanf("%d",&n);
+	int arr[n];
+	int i=0;
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&arr[i]);	
+	}
+	int x;
+	scanf("%d",&x);
+	int flag=0;
+	for(i=0;i<n;i++)
+	{
+		if(x==arr[i])
+		{
+			printf("%d\n",i);
+			flag=1;
+			break;
+		}
+	}
+	if(!flag)
+	printf("-1\n");
+	return 0;
+}
+	scanf("%d",&x);
+	int flag=0;
+	for(i=0;i<n;i++)
+	{
+		if(x==arr[i])
+		{
+			printf("%d\n",i);
+			flag=1;
+			break;
+		}
+	}
+	if(!flag)
+	printf("-1\n");
+	return 0;
+}
