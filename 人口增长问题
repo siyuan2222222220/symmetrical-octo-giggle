@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main()
+{
+	//人口增长问题
+	double x;
+	int n;
+	scanf("%lf%d",&x,&n);
+	int i=0;
+	for(i=0;i<n;i++)
+	{
+		x*=1.001;
+	}
+	printf("%.4lf\n",x);
+	return 0;
+}
