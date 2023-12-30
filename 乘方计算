@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main()
+{
+	// 乘方计算
+	long long a,n;
+	scanf("%lld%lld",&a,&n);
+	long long chen=1;
+	int i=0;
+	for(i=0;i<n;i++)
+	{
+		chen*=a;
+	}
+	printf("%lld\n",chen);
+	return 0;
+}
