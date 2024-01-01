@@ -1,0 +1,44 @@
+#include<stdio.h>
+int main()
+{
+	//B2100 同行列对角线的格
+	int n,x,y;
+	scanf("%d%d%d",&n,&x,&y);
+	int i=0;
+	for(i=1;i<=n;i++)
+	{
+		printf("(%d,%d) ",x,i);
+	}
+	printf("\n");
+
+	for(i=1;i<=n;i++)
+	{
+		printf("(%d,%d) ",i,y);
+	}
+	printf("\n");
+	
+	int tmp=y-x;
+	for(i=1;i<=n;i++)
+	{
+		int j=0;
+		for(j=1;j<=n;j++)
+		{
+			
+			if(j-i==tmp)
+			printf("(%d,%d) ",i,j);
+		}
+	}
+	printf("\n");
+	
+	for(i=n;i>=1;i--)
+	{
+		int j=0;
+		for(j=1;j<=n;j++)
+		{
+			if(i+j==x+y)
+			printf("(%d,%d) ",i,j);
+		}
+	}
+	printf("\n");
+	return 0;
+ } 
