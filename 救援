@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	//救援
+	//v=50  m/min
+	//everytime=1+0.5
+	int n;
+	scanf("%d",&n);
+	double x,y;
+	double time=0;
+	int people;
+	int i=0;
+	for(i=0;i<n;i++)
+	{
+		scanf("%lf%lf",&x,&y);
+		scanf("%d",&people);
+		double distance=sqrt(x*x+y*y);
+		time+=(distance/50*2+people*1.5);		
+	}
+	
+	printf("%.0f\n",ceil(time));
+	return 0;
+}
