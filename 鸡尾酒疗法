@@ -1,0 +1,32 @@
+#include<stdio.h>
+int main()
+{
+	// 鸡尾酒疗法
+	int n;
+	scanf("%d",&n);
+	
+	
+	int total;
+	int effective;
+	scanf("%d%d",&total,&effective);
+	double cocktail=1.0*effective/total;
+	int i=0;
+	for(i=0;i<n-1;i++)
+	{
+		scanf("%d%d",&total,&effective);
+		double other=1.0*effective/total;
+		if(other-cocktail>0.05)
+		{
+			printf("better\n");
+		}
+		else if(cocktail-other>0.05)
+		{
+			printf("worse\n");
+		}
+		else 
+		{
+			printf("same\n");
+		}
+	}
+	return 0;
+}
