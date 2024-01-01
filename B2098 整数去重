@@ -1,0 +1,21 @@
+#include<stdio.h>
+int arr[20005]={0};
+int status[105]={0};
+int main()
+{
+	//B2098 整数去重
+	int n;
+	scanf("%d",&n);
+	int len=n;
+	int i=0;
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&arr[i]);
+		if(!status[arr[i]])
+		{
+			printf("%d ",arr[i]);
+			status[arr[i]]=1;
+		} 
+	}
+	return 0;
+}
