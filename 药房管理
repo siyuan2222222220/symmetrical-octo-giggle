@@ -1,0 +1,28 @@
+#include<stdio.h>
+int main()
+{
+	//药房管理 
+	double m;
+	scanf("%lf",&m); 
+	//m是总库存
+	int n;
+	scanf("%d",&n); 
+	//n是取药人数
+	double medical;
+	//medical为每个病人取药量
+	int cnt=0; 
+	int i=0;
+	for(i=0;i<n;i++)
+	{
+		scanf("%lf",&medical); 
+		
+		if(m>=medical)
+		{
+			m-=medical;	
+		}
+		else 
+		cnt++;		
+	} 
+	printf("%d\n",cnt);
+	return 0;
+}
