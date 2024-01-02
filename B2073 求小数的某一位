@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	//B2073 求小数的某一位
+	int a,b;
+	int n;
+	scanf("%d%d%d",&a,&b,&n);
+	if(a==b)
+	{
+		printf("0\n");
+		return 0;	
+	}
+	 
+	
+	int i=0;
+	for(i=1;i<n;i++)
+	{
+		a=a*10%b;
+		//a表示余数 
+	}
+	//取整 
+	printf("%d\n",a*10/b);
+	return 0;
+} 
+                
+	 
