@@ -1,0 +1,24 @@
+#include<stdio.h>
+int main()
+{
+	//B2101 计算矩阵边缘元素之和
+	int m,n;
+	scanf("%d%d",&m,&n);
+	int sum=0;
+	int num;
+	int i=0;
+	for(i=1;i<=m;i++)
+	{
+		int j=0;
+		for(j=1;j<=n;j++)
+		{
+			scanf("%d",&num);
+			if(i==1||j==1||i==m||j==n)
+			{
+				sum+=num;
+			}
+		}
+	}
+	printf("%d\n",sum);
+	return 0;
+}
