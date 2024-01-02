@@ -1,0 +1,68 @@
+#include<stdio.h>
+int main()
+{
+	int arr[5][5];
+	int str[5][5]={0};
+	int data[5][5]={0};
+	int i=0;
+	for(i=0;i<5;i++)
+	{
+		int j=0;
+		for(j=0;j<5;j++)
+		{
+			scanf("%d",&arr[i][j]);
+		}
+	}
+	int max;
+	int min;
+	int tmpi;
+	int tmpj;
+	for(i=0;i<5;i++)
+	{
+		max=-1;
+		int j=0;
+		for(j=0;j<5;j++)
+		{
+			if(arr[i][j]>max)
+			{
+				max=arr[i][j];
+				tmpi=i;
+				tmpj=j;
+			}
+		}
+		str[tmpi][tmpj]=1;
+	}
+	
+	int j=0;
+	for(j=0;j<5;j++)
+	{
+		min=99999;
+		for(i=0;i<5;i++)
+		{
+			if(arr[i][j]<min)
+			{
+				min=arr[i][j];
+				tmpi=i;
+				tmpj=j;
+			}
+		}
+		data[tmpi][tmpj]=1;
+	}
+	int flag=0;
+	for(i=0;i<5;i++)
+	{
+		for(j=0;j<5;j++)
+		{
+			if(str[i][j]==1&&data[i][j]==1)
+			{
+				flag=1;
+				printf("%d %d %d\n",i+1,j+1,arr[i][j]);
+			}
+		}
+	}
+	if(!flag)
+	{
+		printf("not found\n");
+	}
+	return 0;
+}
