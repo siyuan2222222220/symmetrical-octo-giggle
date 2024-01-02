@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main()
+{
+	//B2072 分苹果
+	int n;
+	scanf("%d",&n);
+	printf("%d\n",(1+n)*n/2);
+	return 0;
+}
