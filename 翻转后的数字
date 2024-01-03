@@ -1,0 +1,27 @@
+#include<stdio.h>
+int main()
+{
+	int n;
+	while(scanf("%d",&n)!=EOF)
+	{
+		int flag=0;
+	//flag=0表示为正数,flag=1表示为负数 
+	if(n<0)
+	{
+		n=-n;
+		flag=1;
+	}
+	int tmp=0;
+	//tmp表示翻转后的数字 
+	while(n>0)
+	{
+		tmp=tmp*10+n%10;
+		n=n/10; 
+	} 
+	if(flag)
+	printf("-");
+	printf("%d\n",tmp);
+	}
+	return 0;
+}
+	
