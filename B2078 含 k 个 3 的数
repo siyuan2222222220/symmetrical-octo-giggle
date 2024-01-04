@@ -1,0 +1,19 @@
+#include<stdio.h>
+int main()
+{
+	//B2078 含 k 个 3 的数
+	long long m,k;
+	scanf("%lld%lld",&m,&k);
+	long long cnt=0;
+	while(m>0)
+	{
+		if(m%10==3)
+		cnt++;
+		m/=10;
+	}
+	if(cnt==k)
+	printf("YES\n");
+	else 
+	printf("NO\n");
+	return 0;
+}
