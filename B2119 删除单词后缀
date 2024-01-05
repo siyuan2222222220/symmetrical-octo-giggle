@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	//B2119 删除单词后缀
+	char str[33];
+	scanf("%s",str);
+	int len=strlen(str);
+	
+	if(str[len-1]=='r'&&str[len-2]=='e'||str[len-1]=='y'&&str[len-2]=='l')
+	{
+		str[len-1]=str[len-2]=' ';
+	}
+	
+	else if(str[len-1]=='g'&&str[len-2]=='n'&&str[len-3]=='i')
+	{
+		str[len-1]=str[len-2]=str[len-3]=' ';
+	}
+	printf("%s\n",str);
+	return 0;
+}
