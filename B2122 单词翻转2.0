@@ -1,0 +1,32 @@
+
+#include<stdio.h>
+#include<string.h>
+char str[105];
+int main()
+{
+	//B2122 单词翻转
+	gets(str);
+	int len=strlen(str);
+	int cnt=0;
+	int i=0;
+	for(i=0;i<len;i++)
+	{
+		if(str[i]==' ')
+		{
+			int j=0;
+			for(j=i-1;j>=i-cnt;j--)
+			{
+				printf("%c",str[j]); 
+			}
+			printf("\n");
+			cnt=0;
+		}
+		else
+		cnt++;	
+	}
+	int j=0;
+	for(j=len-1;j>=i-cnt;j--)
+	printf("%c",str[j]);
+	printf("\n");
+	return 0;	
+} 
