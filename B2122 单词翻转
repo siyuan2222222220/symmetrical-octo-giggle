@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include<string.h>
+char str[105];
+int main()
+{
+	//B2122 单词翻转
+	while(scanf("%s",str))
+	{
+		int len=strlen(str);
+		int i=0;
+		for(i=len-1;i>=0;i--)
+		{
+			putchar(str[i]);
+		}
+		printf("\n");
+	}
+	return 0;
+} 
