@@ -1,0 +1,36 @@
+#include<stdio.h>
+int main()
+{
+	//B3661 [语言月赛202209] 排排队
+	int n;
+	scanf("%d",&n);
+	int j[10001]={0};
+	int o[10001]={0};
+	int num;
+	int cntj=0;
+	int cnto=0;
+	int i=0;
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&num);
+		if(num%2==0)
+		{
+			o[cnto++]=num;
+		}
+		else
+		{
+			j[cntj++]=num;
+		}
+	}
+	for(i=0;i<cntj;i++)
+	{
+		printf("%d ",j[i]);
+	}
+	printf("\n");
+	for(i=0;i<cnto;i++)
+	{
+		printf("%d ",o[i]);
+	}
+	printf("\n");
+	return 0;
+}
