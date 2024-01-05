@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main()
+{
+	//B2082 数字统计
+	int l,r;
+	scanf("%d%d",&l,&r);
+	int cnt=0;
+	int i=0;
+	for(i=l;i<=r;i++)
+	{
+		int tmpi=i;
+		while(tmpi>0)
+		{
+			if(tmpi%10==2)
+			cnt++;
+			tmpi/=10;
+		}
+	}
+	printf("%d\n",cnt);
+	return 0;
+}
