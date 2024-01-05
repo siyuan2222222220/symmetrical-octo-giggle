@@ -1,0 +1,63 @@
+#include<stdio.h>
+#include<math.h>
+#define MAXN 1005
+int getDist(int x,int y,int z,int w)
+{
+	//求出 (x, y) 与 (z, w) 之间的距离
+	return sqrt((x-z)*(x-z)+(y-w)*(y-w));
+}
+struct Position 
+{
+	int x, y;
+	int flag;
+} a[MAXN];
+
+int main()
+{
+	//B3679 [语言月赛202211] Zone Selection
+	int n,k,t;
+	scanf("%d%d%d",&n,&k,&t);
+	
+	int i=0;
+	for (i = 1; i <= n; ++i)
+	{
+		scanf("%d%d",&a[i].x,&a[i].y);
+	}
+
+	for (i = 1; i <= k; ++i) 
+	{
+		int x, y;
+		scanf("%d%d",&x,&y);
+		int j=0;
+		for (j = 1; j <= n; ++j)
+			if (a[j].x == x && a[j].y == y)
+			{
+				a[j].flag =1;
+				break;
+			}
+	}
+	int res=0;
+	for (i = 1; i <= t; ++i) 
+	{
+		int x, y;
+		scanf("%d%d",&x,&y);
+		double maxDist = -1;
+		int ans = 0;
+		int j=0;
+		for (j = 1; j <= n; ++j) 
+		{
+			if (getDist(x, y, a[j].x, a[j].y) > maxDist) 
+			{
+				ans = j;
+				maxDist = getDist(x, y, a[j].x, a[j].y);
+			}
+		
+		}
+			if (a[ans].flag)
+			{
+				++res;
+			}
+	}
+	printf("%d\n",res);
+	return 0;
+}
