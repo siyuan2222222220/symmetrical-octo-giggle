@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<string.h>
+char str[30000]; 
+int main()
+{
+	//B2121 最长最短单词
+	gets(str);
+	int cnt=0;
+	int max=0;
+	int min=205;
+	int len=strlen(str);
+	int maxend;
+	int minend;
+	int i=0;
+	for(i=0;i<len;i++)
+	{
+		if(str[i]==' '||str[i]==','||str[i]=='.')
+		{
+			if(cnt>max)
+			{
+				max=cnt;
+				maxend=i;
+			}
+			if(cnt<min)
+			{
+				min=cnt;
+				minend=i;	
+			}
+			cnt=0;
+		}
+		else
+		{
+			cnt++;
+		}
+	}
+	for(i=maxend-max;i<maxend;i++)
+	{
+		printf("%c",str[i]);
+	}
+	printf("\n");
+	for(i=minend-min;i<minend;i++)
+	{
+		printf("%c",str[i]);
+	}
+	printf("\n");
+	return 0;
+}
