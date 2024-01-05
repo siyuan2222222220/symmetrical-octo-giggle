@@ -1,0 +1,34 @@
+#include<stdio.h>
+int main()
+{
+	//B3652 [语言月赛202208] 渡荆门送别
+	long long n;
+	scanf("%lld",&n);
+	long long arr[n];
+	long long max=0;
+	long long min=1000000000000000001;
+	int i=0;
+	for(i=0;i<n;i++)
+	{
+		scanf("%lld",&arr[i]);
+		if(arr[i]>max)
+		{
+			max=arr[i];
+		}
+		else if(arr[i]<min)
+		{
+			min=arr[i];
+		}
+	}
+	for(i=0;i<n;i++)
+	{
+		printf("%lld ",max-arr[i]);
+	}
+	printf("\n");
+	for(i=0;i<n;i++)
+	{
+		printf("%lld ",arr[i]-min);
+	}
+	printf("\n");
+	return 0;
+ } 
