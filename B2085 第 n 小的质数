@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdbool.h>
+#include<math.h>
+bool book[100000001];
+
+// 用埃氏筛法生成质数表
+void prime(int b) 
+{
+    //初始化，默认全部都是质数
+    memset(book, true, sizeof(book));
+    book[1]=false;//1不是质数
+    int n=sqrt(b);
+    int i;
+	for (i=2;i<=n;i++) 
+	{
+        if (book[i]) 
+		{
+            //质数的倍数绝对不是质数，把所有质数的倍数全部设为false
+            int j;
+			for (j=2;j<=b/i;j++)
+                book[i*j]=false;  // i*j<=b 
+        }
+    }
+}
+int main()
+{
+	//B2085 第 n 小的质数
+	int n;
+	scanf("%d",&n);
+	int ans=0;
+	int u;
+	prime(1000000);
+	int i=0;
+	for(i=2;i<1000000;i++)
+	{
+		if(book[i])
+		{
+			ans++;
+		}
+		if(ans==n)
+		{
+			u=i;
+			break;
+		}
+	}
+	printf("%d\n",u);
+	return 0;
+}
