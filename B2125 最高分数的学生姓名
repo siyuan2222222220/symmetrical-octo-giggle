@@ -1,0 +1,26 @@
+#include<stdio.h>
+struct stu{
+	int grade;
+	char name[25];
+};
+int main()
+{
+	//B2125 最高分数的学生姓名
+	int n;
+	scanf("%d",&n);
+	struct stu stu[105];
+	int max=0;
+	int num=0;
+	int i=0;
+	for(i=0;i<n;i++)
+	{
+		scanf("%d %s",&stu[i].grade,stu[i].name);
+		if(stu[i].grade>max)
+		{
+			max=stu[i].grade;
+			num=i;	
+		}	
+	} 
+	printf("%s\n",stu[num].name);
+	return 0;
+}
