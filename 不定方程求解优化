@@ -1,0 +1,20 @@
+#include<stdio.h>
+int main()
+{
+	//B2086 不定方程求解优化
+	int  a,b,c;
+	scanf("%d%d%d",&a,&b,&c);
+	int ans=0;
+	int x=0;
+	int y=0;
+	for(x=0;a*x<=c;x++)
+	{
+		y=(c-a*x)/b;
+		if(a*x+b*y==c)
+		{
+			ans++;
+		}
+	}
+	printf("%d\n",ans);
+	return 0;
+}
