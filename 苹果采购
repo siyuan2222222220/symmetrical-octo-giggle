@@ -1,0 +1,9 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int StuNum, AppleNum;
+	cin >> StuNum >> AppleNum;
+	cout << StuNum * AppleNum<<endl;
+	return 0;
+}
