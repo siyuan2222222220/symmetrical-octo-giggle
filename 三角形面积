@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+double a, b, c,p,s;
+int main()
+{
+	
+	cin >> a >> b >> c;
+	p = 0.5 * (a + b + c);
+	s = p * (p - a) * (p - b) * (p - c);
+	cout << fixed << setprecision(1) << sqrt(s) << endl;
+	return 0;
+}
