@@ -1,0 +1,21 @@
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+using namespace std;
+int main()
+{
+	int s, v;
+	cin >> s >> v;
+	int time = 0;
+	if (s % v == 0)
+		time = s / v;
+	else
+		time = s / v + 1;
+	int t = (470 + 24 * 60 - time) % 1440;
+	int hh = t / 60;
+	int mm = t % 60;
+	cout << setw(2) << setfill('0') << hh << ":" << setw(2) << setfill('0') << mm << endl;
+	return 0;
+
+}
+
